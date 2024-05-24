@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* General styles for all screen sizes */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        video {
+            width: 80%;
+            max-width: 600px;
+            margin: 10px 0;
+        }
+
+        button {
+            margin: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+
+        /* Styles for screens smaller than 600px (mobile) */
+        @media (max-width: 600px) {
+            video {
+                width: 95%;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>when you have multiple personalities 😄</h1>
+    <video id="video1" src="./WhatsApp Video 2024-05-24 at 14.58.40_bf590d40.mp4"></video>
+    <video id="video2" src="./WhatsApp Video 2024-05-24 at 14.59.15_737a39ef.mp4"></video>
+    <button id="startButton">Start Videos</button>
+
+    <script>
+        // Get the video elements and the button
+        const video1 = document.getElementById('video1');
+        const video2 = document.getElementById('video2');
+        const startButton = document.getElementById('startButton');
+
+        // Add an event listener to the first video
+        video1.addEventListener('ended', function() {
+            // Play the second video when the first one ends
+            video2.play();
+        });
+
+        // Add an event listener to the button
+        startButton.addEventListener('click', function() {
+            // Start playing the first video when the button is clicked
+            video1.play();
+            // Hide the button after it is clicked
+            startButton.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
